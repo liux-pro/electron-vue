@@ -1,3 +1,20 @@
+#原项目无人维护，fork修改自用
+* 修复build报错
+* 添加asar文件保护
+* 添加js混淆插件
+
+```bash
+# Install vue-cli and scaffold boilerplate
+npm install -g vue-cli
+vue init liux-pro/electron-vue my-project
+
+# Install dependencies and run your app
+cd my-project
+yarn # or npm install
+yarn dev # or npm run dev
+yarn build
+```
+
 <div align="center">
 <br>
 <img width="500" src="/docs/images/logo.png" alt="electron-vue">
