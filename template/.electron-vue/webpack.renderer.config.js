@@ -11,6 +11,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
+const WebpackObfuscator = require('webpack-obfuscator');
 
 /**
  * List of node_modules to include in webpack bundle
@@ -179,28 +180,58 @@ if (process.env.NODE_ENV !== 'production') {
   )
 }
 
-/**
- * Adjust rendererConfig for production settings
- */
-if (process.env.NODE_ENV === 'production') {
-  rendererConfig.devtool = ''
+  /**
+   * Adjust rendererConfig for production settings
+   */
+  if (process.env.NODE_ENV === 'production') {
+    rendererConfig.devtool = ''
 
-  rendererConfig.plugins.push(
-    new MinifyPlugin(),
-    new CopyWebpackPlugin([
-      {
-        from: path.join(__dirname, '../static'),
-        to: path.join(__dirname, '../dist/electron/static'),
-        ignore: ['.*']
-      }
-    ]),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': '"production"'
-    }),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true
-    })
-  )
-}
+    rendererConfig.plugins.push(
+        new MinifyPlugin(),
+        new CopyWebpackPlugin([
+          {
+            from: path.join(__dirname, '../static'),
+            to: path.join(__dirname, '../dist/electron/static'),
+            ignore: ['.*']
+          }
+        ]),
+        new webpack.DefinePlugin({
+          'process.env.NODE_ENV': '"production"'
+        }),
+        new webpack.LoaderOptionsPlugin({
+          minimize: true
+        }),
+        new WebpackObfuscator (    {
+          compact: true,
+          controlFlowFlattening: true,
+          controlFlowFlatteningThreshold: 1,
+          deadCodeInjection: true,
+          deadCodeInjectionThreshold: 1,
+          debugProtection: true,
+          debugProtectionInterval: true,
+          disableConsoleOutput: true,
+          identifierNamesGenerator: 'hexadecimal',
+          log: true,
+          numbersToExpressions: true,
+          renameGlobals: true,
+          selfDefending: true,
+          simplify: true,
+          splitStrings: true,
+          splitStringsChunkLength: 5,
+          stringArray: true,
+          stringArrayEncoding: ['rc4'],
+          stringArrayIndexShift: true,
+          stringArrayRotate: true,
+          stringArrayShuffle: true,
+          stringArrayWrappersCount: 5,
+          stringArrayWrappersChainedCalls: true,
+          stringArrayWrappersParametersMaxCount: 5,
+          stringArrayWrappersType: 'function',
+          stringArrayThreshold: 1,
+          transformObjectKeys: true,
+          unicodeEscapeSequence: true
+        }, ['excluded_bundle_name.js'])
+    )
+  }
 
 module.exports = rendererConfig
