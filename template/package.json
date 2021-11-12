@@ -81,7 +81,7 @@
   "dependencies": {
   },
   "devDependencies": {
-    "vue": "^2.5.16"{{deps plugins}}
+    "vue": "^2.5.16",{{deps plugins}}
     "ajv": "^6.5.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
