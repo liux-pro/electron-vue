@@ -1,8 +1,17 @@
 #原项目无人维护，fork修改自用
+## 问题修复
 * 修复build报错
+## 代码保护
 * 添加asar文件保护
 * 添加js混淆插件
-
+## 减小体积
+* 打包时候dependencies的依赖会被打进安装包，但webpack进行Bundle时候，相关js依赖已经打进bundle.js，所以，所有依赖放到DevDependencies能减小体积,
+* 换用32位electron-builder打包
+* 最终exe体积30M
+## TODO
+elementui
+缩减体积
+代码保护
 ```bash
 # Install vue-cli and scaffold boilerplate
 npm install -g vue-cli
@@ -14,7 +23,7 @@ yarn # or npm install
 yarn dev # or npm run dev
 yarn build
 ```
-
+# 以下为原项目
 <div align="center">
 <br>
 <img width="500" src="/docs/images/logo.png" alt="electron-vue">

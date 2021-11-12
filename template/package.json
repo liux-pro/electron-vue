@@ -16,7 +16,7 @@
     "build:mas": "cross-env BUILD_TARGET=mas node .electron-vue/build.js",
     "build:win32": "cross-env BUILD_TARGET=win32 node .electron-vue/build.js",
     {{else}}
-    "build": "node .electron-vue/build.js && electron-builder",
+    "build": "node .electron-vue/build.js && electron-builder --ia32",
     "build:dir": "node .electron-vue/build.js && electron-builder --dir",
     {{/if_eq}}
     "build:clean": "cross-env BUILD_TARGET=clean node .electron-vue/build.js",
@@ -79,9 +79,9 @@
   },
 {{/if_eq}}
   "dependencies": {
-    "vue": "^2.5.16"{{deps plugins}}
   },
   "devDependencies": {
+    "vue": "^2.5.16"{{deps plugins}}
     "ajv": "^6.5.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
