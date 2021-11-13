@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+SEMAPHORE_PROJECT_DIR=$PWD
+
 # Scaffold boilerplate with given templateName
 cd "$PWD/tests"
 node scaffold.js "$1"
