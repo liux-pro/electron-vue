@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-SEMAPHORE_PROJECT_DIR=$PWD
+export SEMAPHORE_PROJECT_DIR=$PWD
 
 # Scaffold boilerplate with given templateName
 cd "$PWD/tests"
