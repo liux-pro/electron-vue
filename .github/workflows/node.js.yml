@@ -27,6 +27,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm install
-    - run: bash build/scaffold.sh default
+    - run: bash tests/scaffold.sh default
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
