@@ -14,7 +14,7 @@ cd "$PWD/builds/$1"
 yarn
 
 # Run unit/e2e testing
-yarn test
+#yarn test
 
 # Run webpack and build electron
 yarn run build
