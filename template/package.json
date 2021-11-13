@@ -81,7 +81,7 @@
   "dependencies": {
   },
   "devDependencies": {
-    "vue": "^2.5.16",{{deps plugins}}
+    "vue": "^2.5.16",
     "ajv": "^6.5.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
@@ -168,5 +168,6 @@
     "webpack-obfuscator": "^2.6.0",
     "javascript-obfuscator": "^3.0.0",
     "asarmor": "^2.0.0-beta.2"
+    {{deps plugins}}
 }
 }
