@@ -1,4 +1,4 @@
-#原项目无人维护，fork修改自用
+# 原项目无人维护，fork修改自用
 ## 问题修复
 * 修复build报错
 ## 代码保护
@@ -9,9 +9,9 @@
 * 换用32位electron-builder打包
 * 最终exe体积30M
 ## TODO
-elementui
-缩减体积
-代码保护
+ui框架
+js混淆等级
+初始化体验优化
 ```bash
 # Install vue-cli and scaffold boilerplate
 npm install -g vue-cli
