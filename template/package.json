@@ -79,9 +79,9 @@
   },
 {{/if_eq}}
   "dependencies": {
+     "vue": "^2.5.16"
   },
   "devDependencies": {
-    "vue": "^2.5.16",
     "ajv": "^6.5.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
